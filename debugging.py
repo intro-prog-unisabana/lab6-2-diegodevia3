@@ -10,16 +10,16 @@ def add_fruit(inventory):
     if fruit in inventory:
         print(f"{fruit} already exists!\n")
     else:
-        stock = input(f"Enter stock for {fruit}: ")
-        inventory[fruit] = int(stock)
+        stock = int(input(f"Enter stock for {fruit}: "))
+        inventory[fruit] = stock
         print(f"{fruit} added with stock {stock}.\n")
 
 
 def update_stock(inventory):
     fruit = input("Enter the name of the fruit to update: ").strip()
     if fruit in inventory:
-        amount = input(f"Enter amount to add to {fruit}'s stock: ")
-        inventory[fruit] += int(amount)
+        amount = int(input(f"Enter amount to add to {fruit}'s stock: "))
+        inventory[fruit] += amount
         print(f"{fruit} stock increased by {amount}.\n")
     else:
         print(f"{fruit} is not in inventory. Use option 2 to add it.\n")
@@ -58,7 +58,4 @@ def run_program():
         elif option == "4":
             print("Goodbye!")
             break
-
-        else:
-            print("Invalid option!\n")
     # FREEZE CODE END
