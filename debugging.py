@@ -43,7 +43,6 @@ def run_program():
     print("Welcome to the Fruit Shop!")
 
     while True:
-        print()  # ← ESTE ES CLAVE
         menu()
         option = input("Enter option number: ")
 
