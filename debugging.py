@@ -30,9 +30,31 @@ def menu():
     print("4 - Exit")
 
 def run_program():
-    inventory = {  # FIX 5 (faltaban comas)
+    inventory = {
         "apples": 10,
         "bananas": 20,
         "oranges": 15
     }
+
+    print("Welcome to the Fruit Shop!\n")
+
+    while True:
+        menu()
+        option = input("Enter option number: ")
+
+        if option == "1":
+            show_inventory(inventory)
+
+        elif option == "2":
+            add_fruit(inventory)
+
+        elif option == "3":
+            update_stock(inventory)
+
+        elif option == "4":
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid option!\n")
     # FREEZE CODE END
