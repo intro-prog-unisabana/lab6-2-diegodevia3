@@ -1,6 +1,6 @@
 def show_inventory(inventory):
-    print()
-    print("Current Inventory:")
+    print("\nCurrent Inventory:")
+    # FIX 1: usar .items()
     for fruit, stock in inventory.items():
         print(f"{fruit}: {stock}")
     print()
@@ -8,26 +8,25 @@ def show_inventory(inventory):
 
 def add_fruit(inventory):
     fruit = input("Enter the name of the new fruit: ").strip()
-    if fruit in inventory:
-        print(f"{fruit} already exists!")
-        print()
+    if fruit in inventory.keys():
+        print(f"{fruit} already exists!\n")
     else:
-        stock = int(input(f"Enter stock for {fruit}: "))
-        inventory[fruit] = stock
-        print(f"{fruit} added with stock {stock}.")
-        print()
+        stock = input(f"Enter stock for {fruit}: ")
+        # FIX 2: usar = en vez de ==
+        inventory[fruit] = int(stock)
+        print(f"{fruit} added with stock {stock}.\n")
 
 
 def update_stock(inventory):
     fruit = input("Enter the name of the fruit to update: ").strip()
+    # FIX 3: verificar con "in inventory"
     if fruit in inventory:
-        amount = int(input(f"Enter amount to add to {fruit}'s stock: "))
-        inventory[fruit] += amount
-        print(f"{fruit} stock increased by {amount}.")
-        print()
+        amount = input(f"Enter amount to add to {fruit}'s stock: ")
+        # FIX 4: convertir a int
+        inventory[fruit] += int(amount)
+        print(f"{fruit} stock increased by {amount}.\n")
     else:
-        print(f"{fruit} is not in inventory. Use option 2 to add it.")
-        print()
+        print(f"{fruit} is not in inventory. Use option 2 to add it.\n")
 
 
 def menu():
@@ -39,26 +38,10 @@ def menu():
 
 
 def run_program():
+    # FIX 5: faltaban comas
     inventory = {
         "apples": 10,
         "bananas": 20,
         "oranges": 15
     }
-
-    print("Welcome to the Fruit Shop!")
-    print()
-
-    while True:
-        menu()
-        option = input("Enter option number: ")
-
-        if option == "1":
-            show_inventory(inventory)
-        elif option == "2":
-            add_fruit(inventory)
-        elif option == "3":
-            update_stock(inventory)
-        elif option == "4":
-            print("Goodbye!")
-            break
     # FREEZE CODE END
